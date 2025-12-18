@@ -1,0 +1,29 @@
+name: Create release
+
+on:
+  push:
+    tags:
+      - "v[0-9]+.[0-9]+**"
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    name: Release tag
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v4
+      - name: Zip sources
+        run: |
+          git archive --format zip --output "luciole-${{ github.ref_name }}.zip" HEAD:src
+
+      - uses: ncipollo/release-action@v1.14.0
+        with:
+          name: "Luciole ${{ github.ref_name }}"
+          artifacts: "luciole-${{ github.ref_name }}.zip"
+          allowUpdates: true
+          omitBody: true
+          omitNameDuringUpdate: true
+          omitBodyDuringUpdate: true
+          omitPrereleaseDuringUpdate: true
