@@ -38,7 +38,7 @@ jobs:
           fi
 
       - name: Update sources
-        if: ${{ steps.check.outputs.update }} == true
+        if: ${{ steps.check.outputs.update == true }}
         env:
           ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
           NEW_VERSION: ${{ steps.check.outputs.new_version }}
