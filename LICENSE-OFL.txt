@@ -1,5 +1,5 @@
-Copyright (c) 2024-2025, Laurent Bourcellier, Jonathan Fabreguettes, Daniel Flipo,
-with Reserved Font Name Luciole.
+Copyright (c) 2024, luciole-vision (https://www.luciole-vision.com),
+with Reserved Font Name luciole.
 
 This Font Software is licensed under the SIL Open Font License, Version 1.1.
 This license is copied below, and is also available with a FAQ at:
