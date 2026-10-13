@@ -11,7 +11,7 @@ jobs:
   update:
     name: Check version
     runs-on: ubuntu-22.04
-    steps:      
+    steps:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
@@ -44,11 +44,11 @@ jobs:
           NEW_VERSION: ${{ steps.check.outputs.new_version }}
         run: |
           cd $GITHUB_WORKSPACE/src
-          curl -o Luciole-Bold-Italic.ttf -L    https://mirrors.ctan.org/fonts/luciole/Luciole-Bold-Italic.ttf
           curl -o Luciole-Bold.ttf -L           https://mirrors.ctan.org/fonts/luciole/Luciole-Bold.ttf
-          curl -o Luciole-Math-Bold.otf -L      https://mirrors.ctan.org/fonts/luciole/Luciole-Math-Bold.otf
+          curl -o Luciole-Bold-Italic.ttf -L    https://mirrors.ctan.org/fonts/luciole/Luciole-BoldItalic.ttf
+          curl -o Luciole-Regular-Italic.ttf -L https://mirrors.ctan.org/fonts/luciole/Luciole-Italic.ttf
           curl -o Luciole-Math.otf -L           https://mirrors.ctan.org/fonts/luciole/Luciole-Math.otf
-          curl -o Luciole-Regular-Italic.ttf -L https://mirrors.ctan.org/fonts/luciole/Luciole-Regular-Italic.ttf
+          curl -o Luciole-Math-Bold.otf -L      https://mirrors.ctan.org/fonts/luciole/Luciole-Math-Bold.otf
           curl -o Luciole-Regular.ttf -L        https://mirrors.ctan.org/fonts/luciole/Luciole-Regular.ttf
 
           git config --unset "http.https://github.com/.extraheader"
