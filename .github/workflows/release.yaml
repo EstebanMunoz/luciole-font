@@ -16,14 +16,11 @@ jobs:
       - uses: actions/checkout@v4
       - name: Zip sources
         run: |
-          git archive --format zip --output "luciole-${{ github.ref_name }}.zip" HEAD:src
+          git archive --format zip ${{ github.ref_name }} \
+          src LICENSE-CC-BY-4.0.txt LICENSE-OFL.txt \
+          --output luciole-${{ github.ref_name }}.zip
 
-      - uses: ncipollo/release-action@v1.14.0
-        with:
-          name: "Luciole ${{ github.ref_name }}"
-          artifacts: "luciole-${{ github.ref_name }}.zip"
-          allowUpdates: true
-          omitBody: true
-          omitNameDuringUpdate: true
-          omitBodyDuringUpdate: true
-          omitPrereleaseDuringUpdate: true
+      - name: Inspect archive
+        run: |
+          ls -lh luciole-${{ github.ref_name }}.zip
+          unzip -l luciole-${{ github.ref_name }}.zip
